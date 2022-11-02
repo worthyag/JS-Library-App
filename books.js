@@ -7,7 +7,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -25,7 +25,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -37,7 +37,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -49,7 +49,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -61,7 +61,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     },
@@ -73,7 +73,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -85,7 +85,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -97,7 +97,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -109,7 +109,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -121,7 +121,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -133,7 +133,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -145,7 +145,7 @@ let myLibrary = [
     }, 
     {
         title: "The Twits",
-        author: "Roal Dahl",
+        author: "Roald Dahl",
         pages: 256,
         read: false
     }, 
@@ -183,7 +183,8 @@ function addBooksToLibrary() {
 }
 
 // Temp styling
-const container = document.querySelector("div");
+const container = document.querySelector(".container");
+container.classList.add("show-books");
 
 // Display Books
 function displayBooks() {
@@ -213,6 +214,27 @@ function displayBooks() {
 }
 
 displayBooks();
+
+// Display books
+const viewBooks = document.querySelector("#view-books");
+
+viewBooks.addEventListener('click', () => {
+    container.classList.toggle("show-books");
+});
+
+
+// Display form
+const newBook = document.querySelector("#add-book");
+
+newBook.addEventListener('click', () => {
+    const form = document.querySelector(".book-form");
+    form.classList.toggle("show-form");
+});
+
+// function showForm() {
+//     const form = document.querySelector(".book-form");
+//     form.classList.toggle("show-form");
+// }
 
 
 

@@ -9,8 +9,33 @@
     <script src="./books.js" defer></script>
 </head>
 <body>
-    <button class="new-book">NEW BOOK</button>
+    <div class="heading">
+        <h1>Library</h1>
+    </div>
+    <button class="new-book" id="add-book">+ ADD BOOK</button>
+    <button class="new-book" id="view-books">VIEW BOOKS</button>
     <div class="container"></div>
-    <form class="book-form" action="">1</form>
+    <form class="book-form show-form" action="">
+        <div class="book-title">
+            <label for="title">Book Title</label>
+            <input type="text" name="title" id="title" placeholder="Ex. The BFG">
+        </div>
+        <div class="book-author">
+            <label for="author">Book Author</label>
+            <input type="text" name="author" id="author" placeholder="Ex. Roald Dahl">
+        </div>
+        <div class="book-length">
+            <label for="length">Book Length</label>
+            <input type="number" name="length" id="length" placeholder="pages">
+        </div>
+        <div class="book-read">
+            <label for="read">Read?</label>
+            <select name="read" id="read">
+                <option value="true">yes</option>
+                <option value="false">no</option>
+            </select>
+        </div>
+        <button type="submit">Add Book</button>
+    </form>
 </body>
 </html>

@@ -1,158 +1,5 @@
-let myLibrary = [
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-    {
-        title: "The Alchemist",
-        author: "Paulo Coelho",
-        pages: 208,
-        read: true
-    },
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    },
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-    {
-        title: "Harry Potter",
-        author: "JK",
-        pages: 1099,
-        read: true
-    }, 
-    {
-        title: "The Twits",
-        author: "Roald Dahl",
-        pages: 256,
-        read: false
-    }, 
-];
-
 // Empty library
-let tempLibrary = [];
+let myLibrary = [];
 
 // Book Constructor
 function Book(Title, Author, Pages, Read) {
@@ -163,13 +10,13 @@ function Book(Title, Author, Pages, Read) {
     this.Read = Read;
 
     // Methods
-    this.readMsg = function() {
-        return (this.Read) ? "read" : "not read yet";
-    }
+    // this.readMsg = function() {
+    //     return (this.Read) ? "read" : "not read yet";
+    // }
 
-    this.info = function() {
-        return `${this.Title} by ${this.Author}, ${this.Pages} pages, ${this.readMsg()}.`;
-    }
+    // this.info = function() {
+    //     return `${this.Title} by ${this.Author}, ${this.Pages} pages, ${this.readMsg()}.`;
+    // }
 }
 
 // Add book to Library function
@@ -178,55 +25,81 @@ function addBookToLibrary(Title, Author, Pages, Read) {
     myLibrary.push(book);
 }
 
-// // Add books to library
-// function addBookToLibrary() {
-//     const title = window.prompt("What is the title of the book?", "unknown");
-//     const author = window.prompt("Who is the author of the book?", "unknown");
-//     const pages = window.prompt("How many pages is the book?", "0");
-//     let read = window.prompt("Have you read the book?", "no");
 
-//     read = (read === "yes") ? true : false;
 
-//     const book = new Book(title, author, parseInt(pages), read);
-//     myLibrary.push(book);
-// }
+// Display books in the library array
+function displayBooks() {
+    const books = document.querySelector(".books");
+
+    // Loop throught the library array + display the cards
+    myLibrary.forEach(myLibrary => {
+        // Creating the cards
+        const card = document.createElement("div");
+        card.classList.add("card");
+        books.appendChild(card);
+
+        // Loop through each object in the array
+        for (let key in myLibrary) {
+            console.log(`${key}: ${myLibrary[key]}`);
+
+            const p = document.querySelector('p');
+            p.textContent = `${key}: ${myLibrary[key]}`;
+            card.appendChild(p);
+
+            // alternative
+            // const group = document.createElement("div");
+            // const h4 = document.createElement("h4");
+            // const p = document.createElement("p");
+            // h4.textContent = `${key}`;
+            // p.textContent = `${myLibrary[key]}`;
+            // group.appendChild(h4); group.appendChild(p);
+            // card.appendChild(group);
+        }
+    })
+}
+
+// Calling functions / Adding manually until the form is complete
+addBookToLibrary("Harry Potter", "JK", 1099, true);
+addBookToLibrary("The Twits", "Roald Dahl", 256, false);
+addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
+
+console.log("My Library", myLibrary);
+
+displayBooks();
+
 
 // // Temp styling
 // const container = document.querySelector(".container");
 // container.classList.add("show-books");
 
-// // Display Books
-// function displayBooks() {
-//     for (let book of myLibrary) {
-//         let types = ["title", "author", "pages", "read"];
+// Display Books
+function displayBooksOnPage() {
+    for (let book of tempLibrary) {
+        const div = document.createElement("div");
 
-//         i = 0;
-//         const div = document.createElement("div");
+        for (let prop in book) {
+            const group = document.createElement("div");
+            const h4 = document.createElement("h4");
+            const p = document.createElement("p");
 
-//         for (let prop in book) {
-//             const group = document.createElement("div");
-//             const h4 = document.createElement("h4");
-//             const p = document.createElement("p");
+            h4.textContent = `${String(prop)}`;
+            p.textContent = `${String(book[prop])}`;
+            group.appendChild(h4);
+            group.appendChild(p);
+            group.classList.add("group");
+            div.appendChild(group);
+        }
 
-//             h4.textContent = `${String(prop)[0].toUpperCase() + String(prop).substring(1)}`;
-//             p.textContent = `${String(book[types[i]])}`;
-//             group.appendChild(h4);
-//             group.appendChild(p);
-//             group.classList.add("group");
-//             div.appendChild(group);
-//             i++;
-//         }
+        div.classList.add("book-box");
 
-//         div.classList.add("book-box");
+        const btn = document.createElement("button");
+        btn.textContent = "DELETE";
+        btn.classList.add('btn', 'delete')
+        div.appendChild(btn);
 
-//         const btn = document.createElement("button");
-//         btn.textContent = "DELETE";
-//         btn.classList.add('btn', 'delete')
-//         div.appendChild(btn);
-
-//         container.appendChild(div);
-//     }
-// }
+        container.appendChild(div);
+    }
+}
 
 // const deleteBtn = document.querySelector("delete");
 // if (deleteBtn) {
@@ -235,7 +108,7 @@ function addBookToLibrary(Title, Author, Pages, Read) {
 //     })
 // }
 
-// displayBooks();
+// displayBooksOnPage();
 
 // Display books
 // const viewBooks = document.querySelector("#view-books");
@@ -264,10 +137,15 @@ function addBookToLibrary(Title, Author, Pages, Read) {
 
 
 
-// addBookToLibrary("Harry Potter", "JK", 1090, true);
-// console.log(myLibrary);
-// console.log(myLibrary[0].info());
+// // Add books to library
+// function addBookToLibrary() {
+//     const title = window.prompt("What is the title of the book?", "unknown");
+//     const author = window.prompt("Who is the author of the book?", "unknown");
+//     const pages = window.prompt("How many pages is the book?", "0");
+//     let read = window.prompt("Have you read the book?", "no");
 
-// addBookToLibrary();
-// console.log(myLibrary);
-// console.log(myLibrary[0].info());
+//     read = (read === "yes") ? true : false;
+
+//     const book = new Book(title, author, parseInt(pages), read);
+//     myLibrary.push(book);
+// }

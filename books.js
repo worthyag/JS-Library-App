@@ -33,8 +33,11 @@ const books = document.querySelector(".books");
 books.classList.add("hidden");
 
 function displayBooks() {
-    // Clear HTML first
-    books.innerHTML = "";
+    // Clear card container first
+    const clearBooks = document.querySelectorAll(".card");
+    for (card of clearBooks) {
+        card.remove();
+    }
 
     // Checks whether the array is empty
     if (myLibrary.length === 0) {
@@ -112,12 +115,17 @@ viewBooks.addEventListener('click', () => {
 
 // Display Form Function
 const addBookBtn = document.querySelector("#add-book-btn");
+const formContainer = document.querySelector("#form-container");
 
 addBookBtn.addEventListener('click', () => {
-    const formContainer = document.querySelector("#form-container");
     // form.classList.toggle("show-form");
     formContainer.classList.toggle("active");
 });
+
+// toggle form
+function toggleForm() {
+    formContainer.classList.toggle("active");
+}
 
 
 // Process Data When Form Submits
@@ -142,11 +150,21 @@ function processFormData(e) {
     addBookToLibrary(userData[0], userData[1], userData[2], userData[3]);
     console.log(myLibrary);
 
+    form.reset(); // temp
+    toggleForm(); // hides form
+
     e.preventDefault();
 }
 
 
 // Remove book from library functionality
+const deleteBtns = document.querySelectorAll(".btn.delete");
+
+for (btn of deleteBtns) {
+    btn.addEventListener('click', () => {
+        console.log("Button clicked!");
+    })
+}
 
 
 

@@ -154,10 +154,10 @@ let myLibrary = [
 // Book Constructor
 function Book(title, author, pages, read) {
     // Properties
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.read = read
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
 
     // Methods
     this.readMsg = function() {
@@ -170,7 +170,7 @@ function Book(title, author, pages, read) {
 }
 
 // Add books to library
-function addBooksToLibrary() {
+function addBookToLibrary() {
     const title = window.prompt("What is the title of the book?", "unknown");
     const author = window.prompt("Who is the author of the book?", "unknown");
     const pages = window.prompt("How many pages is the book?", "0");
@@ -209,8 +209,21 @@ function displayBooks() {
         }
 
         div.classList.add("book-box");
+
+        const btn = document.createElement("button");
+        btn.textContent = "DELETE";
+        btn.classList.add('btn', 'delete')
+        div.appendChild(btn);
+
         container.appendChild(div);
     }
+}
+
+const deleteBtn = document.querySelector("delete");
+if (deleteBtn) {
+    deleteBtn.addEventListener('click', () => {
+        console.log("Clicked the delete btn.");
+    })
 }
 
 displayBooks();
@@ -228,8 +241,12 @@ const newBook = document.querySelector("#add-book");
 
 newBook.addEventListener('click', () => {
     const form = document.querySelector("#form-container");
-    form.classList.toggle("show-form");
+    // form.classList.toggle("show-form");
+    form.classList.toggle("active");
 });
+
+
+
 
 // function showForm() {
 //     const form = document.querySelector(".book-form");
@@ -238,10 +255,10 @@ newBook.addEventListener('click', () => {
 
 
 
-// addBooksToLibrary("Harry Potter", "JK", 1090, true);
+// addBookToLibrary("Harry Potter", "JK", 1090, true);
 // console.log(myLibrary);
 // console.log(myLibrary[0].info());
 
-// addBooksToLibrary();
+// addBookToLibrary();
 console.log(myLibrary);
 // console.log(myLibrary[0].info());

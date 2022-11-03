@@ -12,24 +12,28 @@
     <div class="heading">
         <h1>Library</h1>
     </div>
-    <button class="new-book" id="add-book">+ ADD BOOK</button>
-    <button class="new-book" id="view-books">VIEW BOOKS</button>
+    <button class="btn" id="add-book">+ ADD BOOK</button>
+    <button class="btn" id="view-books">VIEW BOOKS</button>
     <div class="container"></div>
+    <!-- <footer>Created by worthyag</footer> -->
 
 
     <div id="form-container" class="show-form">
         <form class="book-form" action="">
             <div class="book-title">
                 <label for="title">Book Title</label>
-                <input type="text" name="title" id="title" placeholder="Ex. The BFG" required>
+                <input type="text" name="title" id="title" placeholder="Ex. The BFG" required
+                maxlength="100">
             </div>
             <div class="book-author">
                 <label for="author">Book Author</label>
-                <input type="text" name="author" id="author" placeholder="Ex. Roald Dahl" required>
+                <input type="text" name="author" id="author" placeholder="Ex. Roald Dahl" required
+                maxlength="100">
             </div>
             <div class="book-length">
                 <label for="length">Book Length</label>
-                <input type="number" name="length" id="length" placeholder="pages" required>
+                <input type="number" name="length" id="length" placeholder="pages" required
+                max="10000">
             </div>
             <div class="book-read">
                 <label for="read">Read?</label>
@@ -39,7 +43,7 @@
                     <option value="false">no</option>
                 </select>
             </div>
-            <button type="submit">Add Book</button>
+            <button type="submit" id="submit-form">Add Book</button>
         </form>
     </div>
 </body>

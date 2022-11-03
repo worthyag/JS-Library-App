@@ -23,60 +23,130 @@ function Book(Title, Author, Pages, Read) {
 function addBookToLibrary(Title, Author, Pages, Read) {
     const book = new Book(Title, Author, Pages, Read);
     myLibrary.push(book);
+    // displayBooks();
 }
 
 
 
 // Display books in the library array
+const books = document.querySelector(".books");
+books.classList.add("hidden");
+
 function displayBooks() {
-    const books = document.querySelector(".books");
+    // Clear HTML first
+    books.innerHTML = "";
 
-    // Loop throught the library array + display the cards
-    myLibrary.forEach(myLibrary => {
-        // Creating the cards
-        const card = document.createElement("div");
-        card.classList.add("card");
+    // Checks whether the array is empty
+    if (myLibrary.length === 0) {
+        console.log("Library empty.");
 
-        // Loop through each object in the array
-        for (let key in myLibrary) {
-            console.log(`${key}: ${myLibrary[key]}`);
+        const emptyMsg = document.createElement('div');
+        emptyMsg.textContent = "You currently have no books in Library. 🧐";
+        emptyMsg.classList.add('error');
 
-            // alternative
-            // const p = document.createElement('p');
-            // p.textContent = `${key}: ${myLibrary[key]}`;
-            // card.appendChild(p);
+        books.appendChild(emptyMsg);
+        return;
+    }
+        
+    else {
+        // Loop throught the library array + display the cards
+        myLibrary.forEach(myLibrary => {
+            // Creating the cards
+            const card = document.createElement("div");
+            card.classList.add("card");
 
-            const keyGroup = document.createElement("div");
-            const h4 = document.createElement("h4");
-            const p = document.createElement("p");
+            // Loop through each object in the array
+            for (let key in myLibrary) {
+                console.log(`${key}: ${myLibrary[key]}`);
 
-            h4.textContent = `${key}`;
-            p.textContent = `${myLibrary[key]}`;
-            keyGroup.appendChild(h4); keyGroup.appendChild(p);
-            keyGroup.classList.add("keyGroup");
-            card.appendChild(keyGroup);
-        }
-        books.appendChild(card);
-    })
+                // alternative
+                // const p = document.createElement('p');
+                // p.textContent = `${key}: ${myLibrary[key]}`;
+                // card.appendChild(p);
+
+                const keyGroup = document.createElement("div");
+                const h4 = document.createElement("h4");
+                const p = document.createElement("p");
+
+                h4.textContent = `${key}`;
+                p.textContent = `${myLibrary[key]}`;
+                keyGroup.appendChild(h4); keyGroup.appendChild(p);
+                keyGroup.classList.add("keyGroup");
+                card.appendChild(keyGroup);
+            }
+            books.appendChild(card);
+        })
+    }
 }
 
 // Calling functions / Adding manually until the form is complete
-addBookToLibrary("Harry Potter", "JK", 1099, true);
-addBookToLibrary("The Twits", "Roald Dahl", 256, false);
-addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
-addBookToLibrary("Harry Potter", "JK", 1099, true);
-addBookToLibrary("The Twits", "Roald Dahl", 256, false);
-addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
+// addBookToLibrary("Harry Potter", "JK", 1099, true);
+// addBookToLibrary("The Twits", "Roald Dahl", 256, false);
+// addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
+// addBookToLibrary("Harry Potter", "JK", 1099, true);
+// addBookToLibrary("The Twits", "Roald Dahl", 256, false);
+// addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
 
 console.log("My Library", myLibrary);
 
-displayBooks();
+// displayBooks();
+
+// Display Books Function
+const viewBooks = document.querySelector("#view-books-btn");
+
+viewBooks.addEventListener('click', () => {
+    books.classList.toggle("hidden");
+
+    if (!books.classList.contains("hidden"))
+        displayBooks();
+});
+
+
+// Display Form Function
+const addBookBtn = document.querySelector("#add-book-btn");
+
+addBookBtn.addEventListener('click', () => {
+    const formContainer = document.querySelector("#form-container");
+    // form.classList.toggle("show-form");
+    formContainer.classList.toggle("active");
+});
+
+
+// Process Data When Form Submits
+const form = document.querySelector("#add-book-form");
+
+form.addEventListener('submit', processFormData);
+
+function processFormData(e) {
+    console.log("e", e);
+    const formData = new FormData(e.target);
+
+    userData = [];
+
+    formData.forEach((formData, key) => {
+        if (key === "length")
+            formData = parseInt(formData)
+        else if (key === "read")
+            formData = Boolean(formData)
+        userData.push(formData);
+        // console.log(userData); // for testing
+    })
+
+    addBookToLibrary(userData[0], userData[1], userData[2], userData[3]);
+    console.log(myLibrary);
+
+    e.preventDefault();
+}
+
+
 
 
 // // Temp styling
 // const container = document.querySelector(".container");
 // container.classList.add("show-books");
 
+
+// Old function
 // Display Books
 function displayBooksOnPage() {
     for (let book of tempLibrary) {
@@ -136,7 +206,7 @@ function displayBooksOnPage() {
 
 
 // function showForm() {
-//     const form = document.querySelector(".book-form");
+//     const form = document.querySelector(".add-book-form");
 //     form.classList.toggle("show-form");
 // }
 

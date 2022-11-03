@@ -227,7 +227,7 @@ viewBooks.addEventListener('click', () => {
 const newBook = document.querySelector("#add-book");
 
 newBook.addEventListener('click', () => {
-    const form = document.querySelector(".book-form");
+    const form = document.querySelector("#form-container");
     form.classList.toggle("show-form");
 });
 

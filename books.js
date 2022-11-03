@@ -24,6 +24,7 @@ function Book(Title, Author, Pages, Read) {
 function addBookToLibrary(Title, Author, Pages, Read) {
     const book = new Book(Title, Author, Pages, Read);
     myLibrary.push(book);
+    toggleDisplayBooks();
     // displayBooks();
 }
 
@@ -105,12 +106,7 @@ console.log("My Library", myLibrary);
 // Display Books Function
 const viewBooks = document.querySelector("#view-books-btn");
 
-viewBooks.addEventListener('click', () => {
-    books.classList.toggle("hidden");
-
-    if (!books.classList.contains("hidden"))
-        displayBooks();
-});
+viewBooks.addEventListener('click', toggleDisplayBooks);
 
 
 // Display Form Function
@@ -121,11 +117,6 @@ addBookBtn.addEventListener('click', () => {
     // form.classList.toggle("show-form");
     formContainer.classList.toggle("active");
 });
-
-// toggle form
-function toggleForm() {
-    formContainer.classList.toggle("active");
-}
 
 
 // Process Data When Form Submits
@@ -167,6 +158,18 @@ for (btn of deleteBtns) {
 }
 
 
+// Helper functions
+// toggle form
+function toggleForm() {
+    formContainer.classList.toggle("active");
+}
+
+function toggleDisplayBooks() {
+    books.classList.toggle("hidden");
+
+    if (!books.classList.contains("hidden"))
+        displayBooks();
+}
 
 // // Temp styling
 // const container = document.querySelector(".container");

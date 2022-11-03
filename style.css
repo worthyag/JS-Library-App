@@ -12,19 +12,19 @@ body {
     color: #000;
 }
 
-.heading {
+/* .heading {
     width: 100vw;
     background-color: #fff;
     padding: 32px 64px;
     border-bottom: 4px solid rgb(80, 165, 255);
-}
+} */
 
-h1 {
+/* h1 {
     font-size: 3rem;
     width: max-content;
     border-bottom: 8px solid rgb(255, 220, 80);
     text-transform: lowercase;
-}
+} */
 
 .btn {
     font-weight: bold;
@@ -42,18 +42,17 @@ h1 {
 }
 
 /* Delete btn */
-.delete {
+/* .delete {
     padding: 8px 16px;
     border-radius: 8px;
     margin-bottom: 16px;
-}
+} */
 
-.delete:hover {
+/* .delete:hover {
     background-color: rgb(217, 51, 51);
-}
+} */
 
-.container {
-    /* background-color: rgb(90, 149, 216); */
+/* .container {
     border-radius: 16px;
     width: max-content;
     margin: 16px auto;
@@ -63,10 +62,9 @@ h1 {
     height: 350px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-}
+} */
 
-.show-books  {
-    /* visibility: hidden; */
+/* .show-books  {
     display: none;
 }
 
@@ -80,13 +78,13 @@ h1 {
 
 .book-box:hover {
     transform: scale(1.02);
-}
+} */
 
-.book-box h4 {
+/* .book-box h4 {
     font-size: 18px;
-}
+} */
 
-.book-box p {
+/* .book-box p {
     font-weight: bold;
     background-color: #333;
     color: #fff;
@@ -110,9 +108,9 @@ h1 {
     padding: 4px 8px 4px 8px;
     width: 100px;
     border-radius: 8px;
-}
+} */
 
-.book-box div:nth-of-type(1) h4 {
+/* .book-box div:nth-of-type(1) h4 {
     background-color: rgb(196, 143, 228);
 }
 
@@ -131,25 +129,25 @@ h1 {
 .group p {
     margin: 0 auto 0 0;
     padding-left: 8px;
-}
+} */
 
 
 /* Book form */
-#form-container {
+/* #form-container {
     transform: scale(0);
     transition: 0.2s ease-in-out;
 }
 
 #form-container.active {
     transform: scale(1);
-}
+} */
 
 /* .show-form  { */
     /* visibility: hidden; */
     /* display: none; */
 /* } */
 
-.book-form {
+/* .book-form {
     background-color: #333;
     color: #fff;
     font-weight: bold;
@@ -165,9 +163,9 @@ h1 {
 .book-form  > .book-length,
 .book-form  > .book-read {
     margin: 16px;
-}
+} */
 
-.book-form input, 
+/* .book-form input, 
 .book-form select {
     width: 200px;
     height: 28px;
@@ -176,13 +174,13 @@ h1 {
     padding-left: 4px;
     outline-color: rgb(140, 119, 233);
     font-weight: bold;
-}
+} */
 
-.book-form input::placeholder {
+/* .book-form input::placeholder {
     font-weight: bold;
-}
+} */
 
-.book-form button {
+/* .book-form button {
     font-weight: bold;
     background-color: #fff;
     color: #333;
@@ -191,9 +189,9 @@ h1 {
     border-radius: 16px;
     margin: 16px auto;
     font-size: 20px;
-}
+} */
 
-.book-form button:hover {
+/* .book-form button:hover {
     background-color: rgb(140, 119, 233);
     cursor: pointer;
-}
+} */

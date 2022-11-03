@@ -151,99 +151,108 @@ let myLibrary = [
     }, 
 ];
 
+// Empty library
+let tempLibrary = [];
+
 // Book Constructor
-function Book(title, author, pages, read) {
+function Book(Title, Author, Pages, Read) {
     // Properties
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+    this.Title = Title;
+    this.Author = Author;
+    this.Pages = Pages;
+    this.Read = Read;
 
     // Methods
     this.readMsg = function() {
-        return (this.read) ? "read" : "not read yet";
+        return (this.Read) ? "read" : "not read yet";
     }
 
     this.info = function() {
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.readMsg()}.`;
+        return `${this.Title} by ${this.Author}, ${this.Pages} pages, ${this.readMsg()}.`;
     }
 }
 
-// Add books to library
-function addBookToLibrary() {
-    const title = window.prompt("What is the title of the book?", "unknown");
-    const author = window.prompt("Who is the author of the book?", "unknown");
-    const pages = window.prompt("How many pages is the book?", "0");
-    let read = window.prompt("Have you read the book?", "no");
-
-    read = (read === "yes") ? true : false;
-
-    const book = new Book(title, author, parseInt(pages), read);
+// Add book to Library function
+function addBookToLibrary(Title, Author, Pages, Read) {
+    const book = new Book(Title, Author, Pages, Read);
     myLibrary.push(book);
 }
 
-// Temp styling
-const container = document.querySelector(".container");
-container.classList.add("show-books");
+// // Add books to library
+// function addBookToLibrary() {
+//     const title = window.prompt("What is the title of the book?", "unknown");
+//     const author = window.prompt("Who is the author of the book?", "unknown");
+//     const pages = window.prompt("How many pages is the book?", "0");
+//     let read = window.prompt("Have you read the book?", "no");
 
-// Display Books
-function displayBooks() {
-    for (let book of myLibrary) {
-        let types = ["title", "author", "pages", "read"];
+//     read = (read === "yes") ? true : false;
 
-        i = 0;
-        const div = document.createElement("div");
+//     const book = new Book(title, author, parseInt(pages), read);
+//     myLibrary.push(book);
+// }
 
-        for (let prop in book) {
-            const group = document.createElement("div");
-            const h4 = document.createElement("h4");
-            const p = document.createElement("p");
+// // Temp styling
+// const container = document.querySelector(".container");
+// container.classList.add("show-books");
 
-            h4.textContent = `${String(prop)[0].toUpperCase() + String(prop).substring(1)}`;
-            p.textContent = `${String(book[types[i]])}`;
-            group.appendChild(h4);
-            group.appendChild(p);
-            group.classList.add("group");
-            div.appendChild(group);
-            i++;
-        }
+// // Display Books
+// function displayBooks() {
+//     for (let book of myLibrary) {
+//         let types = ["title", "author", "pages", "read"];
 
-        div.classList.add("book-box");
+//         i = 0;
+//         const div = document.createElement("div");
 
-        const btn = document.createElement("button");
-        btn.textContent = "DELETE";
-        btn.classList.add('btn', 'delete')
-        div.appendChild(btn);
+//         for (let prop in book) {
+//             const group = document.createElement("div");
+//             const h4 = document.createElement("h4");
+//             const p = document.createElement("p");
 
-        container.appendChild(div);
-    }
-}
+//             h4.textContent = `${String(prop)[0].toUpperCase() + String(prop).substring(1)}`;
+//             p.textContent = `${String(book[types[i]])}`;
+//             group.appendChild(h4);
+//             group.appendChild(p);
+//             group.classList.add("group");
+//             div.appendChild(group);
+//             i++;
+//         }
 
-const deleteBtn = document.querySelector("delete");
-if (deleteBtn) {
-    deleteBtn.addEventListener('click', () => {
-        console.log("Clicked the delete btn.");
-    })
-}
+//         div.classList.add("book-box");
 
-displayBooks();
+//         const btn = document.createElement("button");
+//         btn.textContent = "DELETE";
+//         btn.classList.add('btn', 'delete')
+//         div.appendChild(btn);
+
+//         container.appendChild(div);
+//     }
+// }
+
+// const deleteBtn = document.querySelector("delete");
+// if (deleteBtn) {
+//     deleteBtn.addEventListener('click', () => {
+//         console.log("Clicked the delete btn.");
+//     })
+// }
+
+// displayBooks();
 
 // Display books
-const viewBooks = document.querySelector("#view-books");
+// const viewBooks = document.querySelector("#view-books");
 
-viewBooks.addEventListener('click', () => {
-    container.classList.toggle("show-books");
-});
+// viewBooks.addEventListener('click', () => {
+//     container.classList.toggle("show-books");
+// });
 
 
 // Display form
-const newBook = document.querySelector("#add-book");
+// const newBook = document.querySelector("#add-book");
 
-newBook.addEventListener('click', () => {
-    const form = document.querySelector("#form-container");
-    // form.classList.toggle("show-form");
-    form.classList.toggle("active");
-});
+// newBook.addEventListener('click', () => {
+//     const form = document.querySelector("#form-container");
+//     // form.classList.toggle("show-form");
+//     form.classList.toggle("active");
+// });
 
 
 
@@ -260,5 +269,5 @@ newBook.addEventListener('click', () => {
 // console.log(myLibrary[0].info());
 
 // addBookToLibrary();
-console.log(myLibrary);
+// console.log(myLibrary);
 // console.log(myLibrary[0].info());

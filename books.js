@@ -36,29 +36,34 @@ function displayBooks() {
         // Creating the cards
         const card = document.createElement("div");
         card.classList.add("card");
-        books.appendChild(card);
 
         // Loop through each object in the array
         for (let key in myLibrary) {
             console.log(`${key}: ${myLibrary[key]}`);
 
-            const p = document.querySelector('p');
-            p.textContent = `${key}: ${myLibrary[key]}`;
-            card.appendChild(p);
-
             // alternative
-            // const group = document.createElement("div");
-            // const h4 = document.createElement("h4");
-            // const p = document.createElement("p");
-            // h4.textContent = `${key}`;
-            // p.textContent = `${myLibrary[key]}`;
-            // group.appendChild(h4); group.appendChild(p);
-            // card.appendChild(group);
+            // const p = document.createElement('p');
+            // p.textContent = `${key}: ${myLibrary[key]}`;
+            // card.appendChild(p);
+
+            const keyGroup = document.createElement("div");
+            const h4 = document.createElement("h4");
+            const p = document.createElement("p");
+
+            h4.textContent = `${key}`;
+            p.textContent = `${myLibrary[key]}`;
+            keyGroup.appendChild(h4); keyGroup.appendChild(p);
+            keyGroup.classList.add("keyGroup");
+            card.appendChild(keyGroup);
         }
+        books.appendChild(card);
     })
 }
 
 // Calling functions / Adding manually until the form is complete
+addBookToLibrary("Harry Potter", "JK", 1099, true);
+addBookToLibrary("The Twits", "Roald Dahl", 256, false);
+addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
 addBookToLibrary("Harry Potter", "JK", 1099, true);
 addBookToLibrary("The Twits", "Roald Dahl", 256, false);
 addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);

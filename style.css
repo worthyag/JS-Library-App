@@ -205,9 +205,6 @@ body {
     font-weight: bold;
 }
 
-/* .add-book-form input::placeholder {
-    font-weight: bold;
-} */
 
 /* Form Btn */
 #add-book-form button {
@@ -238,15 +235,18 @@ body {
 }
 
 /* Delete btn */
-/* .delete {
+.delete {
     padding: 8px 16px;
     border-radius: 8px;
-    margin-bottom: 16px;
-} */
+    margin-bottom: 12px;
+}
 
-/* .delete:hover {
+.delete:hover {
     background-color: rgb(217, 51, 51);
-} */
+}
+
+
+
 
 /* .show-books  {
     display: none;

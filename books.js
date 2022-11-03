@@ -19,13 +19,13 @@ function Book(Title, Author, Pages, Read) {
     // }
 }
 
+
 // Add book to Library function
 function addBookToLibrary(Title, Author, Pages, Read) {
     const book = new Book(Title, Author, Pages, Read);
     myLibrary.push(book);
     // displayBooks();
 }
-
 
 
 // Display books in the library array
@@ -74,22 +74,30 @@ function displayBooks() {
                 keyGroup.classList.add("keyGroup");
                 card.appendChild(keyGroup);
             }
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "DELETE";
+            deleteBtn.classList.add('btn', 'delete')
+            card.appendChild(deleteBtn);
+
             books.appendChild(card);
         })
     }
 }
 
+
 // Calling functions / Adding manually until the form is complete
-// addBookToLibrary("Harry Potter", "JK", 1099, true);
-// addBookToLibrary("The Twits", "Roald Dahl", 256, false);
-// addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
-// addBookToLibrary("Harry Potter", "JK", 1099, true);
-// addBookToLibrary("The Twits", "Roald Dahl", 256, false);
-// addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
+addBookToLibrary("Harry Potter", "JK", 1099, true);
+addBookToLibrary("The Twits", "Roald Dahl", 256, false);
+addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
+addBookToLibrary("Harry Potter", "JK", 1099, true);
+addBookToLibrary("The Twits", "Roald Dahl", 256, false);
+addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
 
 console.log("My Library", myLibrary);
 
 // displayBooks();
+
 
 // Display Books Function
 const viewBooks = document.querySelector("#view-books-btn");
@@ -114,7 +122,6 @@ addBookBtn.addEventListener('click', () => {
 
 // Process Data When Form Submits
 const form = document.querySelector("#add-book-form");
-
 form.addEventListener('submit', processFormData);
 
 function processFormData(e) {
@@ -139,6 +146,8 @@ function processFormData(e) {
 }
 
 
+// Remove book from library functionality
+
 
 
 // // Temp styling
@@ -148,33 +157,33 @@ function processFormData(e) {
 
 // Old function
 // Display Books
-function displayBooksOnPage() {
-    for (let book of tempLibrary) {
-        const div = document.createElement("div");
+// function displayBooksOnPage() {
+//     for (let book of tempLibrary) {
+//         const div = document.createElement("div");
 
-        for (let prop in book) {
-            const group = document.createElement("div");
-            const h4 = document.createElement("h4");
-            const p = document.createElement("p");
+//         for (let prop in book) {
+//             const group = document.createElement("div");
+//             const h4 = document.createElement("h4");
+//             const p = document.createElement("p");
 
-            h4.textContent = `${String(prop)}`;
-            p.textContent = `${String(book[prop])}`;
-            group.appendChild(h4);
-            group.appendChild(p);
-            group.classList.add("group");
-            div.appendChild(group);
-        }
+//             h4.textContent = `${String(prop)}`;
+//             p.textContent = `${String(book[prop])}`;
+//             group.appendChild(h4);
+//             group.appendChild(p);
+//             group.classList.add("group");
+//             div.appendChild(group);
+//         }
 
-        div.classList.add("book-box");
+//         div.classList.add("book-box");
 
-        const btn = document.createElement("button");
-        btn.textContent = "DELETE";
-        btn.classList.add('btn', 'delete')
-        div.appendChild(btn);
+//         const btn = document.createElement("button");
+//         btn.textContent = "DELETE";
+//         btn.classList.add('btn', 'delete')
+//         div.appendChild(btn);
 
-        container.appendChild(div);
-    }
-}
+//         container.appendChild(div);
+//     }
+// }
 
 // const deleteBtn = document.querySelector("delete");
 // if (deleteBtn) {

@@ -53,13 +53,14 @@ function displayBooks() {
     }
         
     else {
-        // Loop throught the library array + display the cards
+        let index = 0; 
+        // Loop through the library array + display the cards
         myLibrary.forEach(myLibrary => {
             // Creating the cards
             const card = document.createElement("div");
             card.classList.add("card");
 
-            // Loop through each object in the array
+            // Loop through each object in the array 
             for (let key in myLibrary) {
                 console.log(`${key}: ${myLibrary[key]}`);
 
@@ -79,9 +80,16 @@ function displayBooks() {
                 card.appendChild(keyGroup);
             }
 
+            // Adding the relevant classes
             const deleteBtn = document.createElement("button");
             deleteBtn.textContent = "DELETE";
             deleteBtn.classList.add('btn', 'delete')
+
+            // Adding the data attribute
+            deleteBtn.dataset.linkedArray = index;
+            index++;
+            console.log(deleteBtn.dataset.linkedArray)
+
             card.appendChild(deleteBtn);
 
             books.appendChild(card);
